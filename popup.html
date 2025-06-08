@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok Takip Temizleyici</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>TikTok Takip Temizleyici</h1>
+            <p>Sizi takip etmeyen kullanıcıları takipten çıkarın</p>
+        </div>
+        
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-number" id="totalFollowing">-</span>
+                <span class="stat-label">Takip Edilen</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="totalFollowers">-</span>
+                <span class="stat-label">Takipçi</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="nonFollowBacks">-</span>
+                <span class="stat-label">Takip Etmeyen</span>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <button id="analyzeBtn" class="btn btn-primary">
+                <span class="btn-text">Analiz Et</span>
+                <span class="loader" style="display: none;"></span>
+            </button>
+            
+            <button id="unfollowBtn" class="btn btn-danger" disabled>
+                <span class="btn-text">Takipten Çıkar</span>
+                <span class="loader" style="display: none;"></span>
+            </button>
+            
+            <button id="stopBtn" class="btn btn-secondary" style="display: none;">
+                Durdur
+            </button>
+        </div>
+        
+        <div class="settings">
+            <label>
+                <input type="checkbox" id="delayCheckbox" checked>
+                Güvenli mod (3 saniye bekleme)
+            </label>
+            
+            <label>
+                Maksimum işlem:
+                <select id="maxUnfollow">
+                    <option value="10">10</option>
+                    <option value="25" selected>25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                    <option value="-1">Sınırsız</option>
+                </select>
+            </label>
+        </div>
+        
+        <div class="progress" style="display: none;">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-text" id="progressText">0 / 0</div>
+        </div>
+        
+        <div class="log" id="log"></div>
+        
+        <div class="footer">
+            <p>⚠️ TikTok profilinizde "Takip Ediliyor" sekmesinde olduğunuzdan emin olun</p>
+        </div>
+    </div>
+    
+    <script src="popup.js"></script>
+</body>
+</html>

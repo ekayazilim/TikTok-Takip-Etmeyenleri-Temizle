@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "TikTok Takip Etmeyenleri Temizle",
+  "version": "1.0",
+  "description": "TikTok'ta sizi takip etmeyen kullanıcıları otomatik olarak takipten çıkarır",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://*.tiktok.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://*.tiktok.com/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "TikTok Takip Temizleyici"
+  },
+  "icons": {
+    "16": "icon16.svg",
+    "48": "icon48.svg",
+    "128": "icon128.svg"
+  }
+}

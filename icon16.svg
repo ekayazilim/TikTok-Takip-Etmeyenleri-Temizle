@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff0050;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff4081;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Ana arka plan -->
+  <rect width="16" height="16" rx="3" fill="url(#grad1)"/>
+  
+  <!-- TikTok benzeri müzik notu -->
+  <path d="M5 3.5C5 3.22 5.22 3 5.5 3H6.5C6.78 3 7 3.22 7 3.5V9.5C7 10.33 6.33 11 5.5 11S4 10.33 4 9.5S4.67 8 5.5 8C5.67 8 5.83 8.05 5.97 8.13V3.5Z" fill="white"/>
+  
+  <!-- Takip simgesi (kişi) -->
+  <circle cx="10" cy="6" r="1.5" fill="white" opacity="0.9"/>
+  <path d="M7.5 10.5C7.5 9.67 8.17 9 9 9H11C11.83 9 12.5 9.67 12.5 10.5V12.5H7.5V10.5Z" fill="white" opacity="0.9"/>
+  
+  <!-- Çarpı işareti (takipten çıkarma) -->
+  <path d="M11.5 4L12.5 5L10.5 7L12.5 9L11.5 10L9.5 8L7.5 10L6.5 9L8.5 7L6.5 5L7.5 4L9.5 6L11.5 4Z" fill="#ff0050" stroke="white" stroke-width="0.5"/>
+</svg>

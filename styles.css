@@ -1,0 +1,240 @@
+/* TikTok Takip Temizleyici - Content Script Stilleri */
+
+/* Eklenti bildirimleri için stil */
+.tiktok-unfollower-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #ff0050, #ff4081);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(255, 0, 80, 0.3);
+    z-index: 10000;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    max-width: 300px;
+    animation: slideInRight 0.3s ease-out;
+    transition: all 0.3s ease;
+}
+
+.tiktok-unfollower-notification.success {
+    background: linear-gradient(135deg, #28a745, #20c997);
+}
+
+.tiktok-unfollower-notification.error {
+    background: linear-gradient(135deg, #dc3545, #e74c3c);
+}
+
+.tiktok-unfollower-notification.warning {
+    background: linear-gradient(135deg, #ffc107, #fd7e14);
+    color: #212529;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+.tiktok-unfollower-notification.hiding {
+    animation: slideOutRight 0.3s ease-in;
+}
+
+/* İşlem göstergesi */
+.tiktok-unfollower-processing {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 30px;
+    border-radius: 12px;
+    z-index: 10001;
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.tiktok-unfollower-processing .spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #333;
+    border-top: 4px solid #ff0050;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 15px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.tiktok-unfollower-processing h3 {
+    margin: 0 0 10px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.tiktok-unfollower-processing p {
+    margin: 0;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* Kullanıcı vurgulama */
+.tiktok-unfollower-highlight {
+    background: rgba(255, 0, 80, 0.1) !important;
+    border: 2px solid #ff0050 !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease !important;
+}
+
+.tiktok-unfollower-highlight:hover {
+    background: rgba(255, 0, 80, 0.2) !important;
+    transform: scale(1.02) !important;
+}
+
+/* İşlem butonu vurgulama */
+.tiktok-unfollower-button-highlight {
+    background: #ff0050 !important;
+    color: white !important;
+    border: 2px solid #ff0050 !important;
+    box-shadow: 0 0 10px rgba(255, 0, 80, 0.5) !important;
+    animation: pulse 2s infinite !important;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 10px rgba(255, 0, 80, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(255, 0, 80, 0.8);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(255, 0, 80, 0.5);
+    }
+}
+
+/* İlerleme çubuğu overlay */
+.tiktok-unfollower-progress-overlay {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 20px 30px;
+    border-radius: 10px;
+    z-index: 10000;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    min-width: 300px;
+    text-align: center;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+}
+
+.tiktok-unfollower-progress-overlay .progress-bar {
+    width: 100%;
+    height: 6px;
+    background: #333;
+    border-radius: 3px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.tiktok-unfollower-progress-overlay .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ff0050, #ff4081);
+    transition: width 0.3s ease;
+    border-radius: 3px;
+}
+
+.tiktok-unfollower-progress-overlay .progress-text {
+    font-size: 12px;
+    opacity: 0.8;
+    margin-top: 5px;
+}
+
+/* Responsive tasarım */
+@media (max-width: 768px) {
+    .tiktok-unfollower-notification {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        max-width: none;
+        font-size: 13px;
+        padding: 12px 15px;
+    }
+    
+    .tiktok-unfollower-processing {
+        padding: 20px;
+        margin: 0 20px;
+    }
+    
+    .tiktok-unfollower-progress-overlay {
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+        transform: none;
+        min-width: auto;
+        padding: 15px 20px;
+    }
+}
+
+/* Koyu tema uyumluluğu */
+@media (prefers-color-scheme: dark) {
+    .tiktok-unfollower-notification.warning {
+        color: white;
+    }
+}
+
+/* Animasyon performansı */
+.tiktok-unfollower-notification,
+.tiktok-unfollower-processing,
+.tiktok-unfollower-progress-overlay {
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* Erişilebilirlik */
+@media (prefers-reduced-motion: reduce) {
+    .tiktok-unfollower-notification,
+    .tiktok-unfollower-processing,
+    .tiktok-unfollower-progress-overlay,
+    .tiktok-unfollower-highlight,
+    .tiktok-unfollower-button-highlight {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* Yüksek kontrast modu */
+@media (prefers-contrast: high) {
+    .tiktok-unfollower-notification {
+        border: 2px solid white;
+    }
+    
+    .tiktok-unfollower-highlight {
+        border-width: 3px !important;
+    }
+}
